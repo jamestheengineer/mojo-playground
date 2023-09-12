@@ -11,8 +11,8 @@ fn main():
     var a = HeapArray(3, 1)
     a.dump()   # Should print [1, 1, 1]
     # Uncomment to see an error:
-    # var b = a  # ERROR: Vector doesn't implement __copyinit__
+    var b = a  # ERROR: Vector doesn't implement __copyinit__
 
-    var b = HeapArray(4, 2)
+    # var b = HeapArray(4, 2)
     b.dump()   # Should print [2, 2, 2, 2]
     a.dump()   # Should print [1, 1, 1]
