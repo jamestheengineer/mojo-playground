@@ -34,3 +34,26 @@ struct HeapArray:
                 print_no_newline(", ")
             print_no_newline(self.data.load(i))
         print("]")
+
+# Don't worry about this code yet. It's just needed for the function below.
+# It's a type so expensive to copy around so it does not have a
+# __copyinit__ method.
+struct SomethingBig:
+    var id_number: Int
+    var huge: HeapArray
+    fn __init__(inout self, id: Int):
+        self.huge = HeapArray(1000, 0)
+        self.id_number = id
+
+    # self is passed by-reference for mutation as described above.
+    fn set_id(inout self, number: Int):
+        self.id_number = number
+
+    # Arguments like self are passed as borrowed by default.
+    fn print_id(self):  # Same as: fn print_id(borrowed self):
+        print(self.id_number)
+
+fn use_something_big(borrowed a: SomethingBig, b: SomethingBig):
+    """'a' and 'b' are both immutable, because 'borrowed' is the default."""
+    a.print_id()
+    b.print_id()
