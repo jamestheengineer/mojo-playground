@@ -12,7 +12,7 @@ fn main():
     a.dump()   # Should print [1, 1, 1]
     # Uncomment to see an error:
     var b = a  # ERROR: Vector doesn't implement __copyinit__
-
-    # var b = HeapArray(4, 2)
+    b.dump()
+    b = HeapArray(4, 2) # Memory leak?
     b.dump()   # Should print [2, 2, 2, 2]
     a.dump()   # Should print [1, 1, 1]
