@@ -57,3 +57,25 @@ fn use_something_big(borrowed a: SomethingBig, b: SomethingBig):
     """'a' and 'b' are both immutable, because 'borrowed' is the default."""
     a.print_id()
     b.print_id()
+
+struct MyInt:
+    var value: Int
+    
+    fn __init__(inout self, v: Int):
+        self.value = v
+  
+    fn __copyinit__(inout self, other: MyInt):
+        self.value = other.value
+        
+    # self and rhs are both immutable in __add__.
+    fn __add__(self, rhs: MyInt) -> MyInt:
+        return MyInt(self.value + rhs.value)
+
+   # ... now this works:
+    fn __iadd__(inout self, rhs: Int):
+        self = self + rhs
+
+fn swap(inout lhs: Int, inout rhs: Int):
+    let tmp = lhs
+    lhs = rhs
+    rhs = tmp

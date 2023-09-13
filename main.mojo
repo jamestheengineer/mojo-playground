@@ -3,6 +3,8 @@ from mypack.module1 import ModulePair
 from ProgrammingManual import HeapArray
 from ProgrammingManual import SomethingBig
 from ProgrammingManual import use_something_big
+from ProgrammingManual import MyInt
+from ProgrammingManual import swap
 
 fn main():
     let mine = MyPair(2, 6)
@@ -22,3 +24,12 @@ fn main():
     let a = SomethingBig(10)
     let b = SomethingBig(20)
     use_something_big(a, b)
+
+    var x: MyInt = 42
+    x += 1
+    print(x.value) # prints 43 as expected
+
+    # However...
+    let y = x
+    # Uncomment to see the error:
+    # y += 1       # ERROR: Cannot mutate 'let' value
