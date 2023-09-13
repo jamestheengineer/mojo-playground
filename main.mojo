@@ -24,3 +24,18 @@ fn main():
     let c = SomethingBig(10)
     let d = SomethingBig(20)
     use_something_big(c, d)
+
+    var x: MyInt = 42
+    x += 1
+    print(x.value) # prints 43 as expected
+
+    # However...
+    let y = x
+    # Uncomment to see the error:
+    # y += 1       # ERROR: Cannot mutate 'let' value
+
+    var k = 42
+    var m = 12
+    print(k, m)  # Prints 42, 12
+    swap(k, m)
+    print(k, m)  # Prints 12, 42
