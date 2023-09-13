@@ -10,7 +10,7 @@ fn main():
     let mine2 = ModulePair(3,6)
     mine2.dump()
 
-    var a = HeapArray(3, 1)
+    let a = HeapArray(3, 1)
     a.dump()   # Should print [1, 1, 1]
     # Uncomment to see an error:
     var b = a  # ERROR: Vector doesn't implement __copyinit__
@@ -19,6 +19,6 @@ fn main():
     b.dump()   # Should print [2, 2, 2, 2]
     a.dump()   # Should print [1, 1, 1]
 
-    let a = SomethingBig(10)
-    let b = SomethingBig(20)
-    use_something_big(a, b)
+    let c = SomethingBig(10)
+    let d = SomethingBig(20)
+    use_something_big(c, d)
