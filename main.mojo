@@ -3,6 +3,8 @@ from mypack.module1 import ModulePair
 from ProgrammingManual import HeapArray
 from ProgrammingManual import SomethingBig
 from ProgrammingManual import use_something_big
+from ProgrammingManual import MyInt
+from ProgrammingManual import swap
 
 fn main():
     let mine = MyPair(2, 6)
