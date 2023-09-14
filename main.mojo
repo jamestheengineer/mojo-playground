@@ -41,4 +41,4 @@ fn main():
     swap(k, m)
     print(k, m)  # Prints 12, 42
 
-    pm.work_with_unique_ptrs
+    pm.work_with_unique_ptrs()
