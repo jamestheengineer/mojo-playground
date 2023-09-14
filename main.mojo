@@ -5,6 +5,7 @@ from ProgrammingManual import SomethingBig
 from ProgrammingManual import use_something_big
 from ProgrammingManual import MyInt
 from ProgrammingManual import swap
+import ProgrammingManual as pm
 
 fn main():
     let mine = MyPair(2, 6)
@@ -39,3 +40,5 @@ fn main():
     print(k, m)  # Prints 42, 12
     swap(k, m)
     print(k, m)  # Prints 12, 42
+
+    pm.work_with_unique_ptrs
