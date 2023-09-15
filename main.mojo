@@ -6,7 +6,6 @@ from ProgrammingManual import use_something_big
 from ProgrammingManual import MyInt
 from ProgrammingManual import swap
 import ProgrammingManual as pm
-from python import Python
 
 fn main():
     let mine = MyPair(2, 6)
@@ -45,8 +44,9 @@ fn main():
     pm.work_with_unique_ptrs()
 
     # This is equivalent to Python's `import numpy as np`
-    let np = Python.import_module("numpy")
-
-    # Now use numpy as if writing in Python
-    array = np.array([1, 2, 3])
-    print(array)
+    try:
+        let v = pm.work_with_python()
+    except e:
+        print(e.value)
+        print("could not find module simple_interop")
+    

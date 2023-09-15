@@ -1,4 +1,5 @@
 from memory.unsafe import Pointer
+from python import Python
 
 struct HeapArray:
     var data: Pointer[Int]
@@ -106,3 +107,9 @@ fn work_with_unique_ptrs():
     let p = UniquePointer(100)
     use_ptr(p)    # Pass to borrowing function.
     take_ptr(p^)  # Pass ownership of the `p` value to another function.
+
+def work_with_python():
+    let np = Python.import_module("numpy")
+    # Now use numpy as if writing in Python
+    array = np.array([1, 2, 3])
+    print(array)
