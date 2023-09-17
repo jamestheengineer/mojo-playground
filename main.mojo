@@ -50,5 +50,4 @@ fn main():
         print(e.value)
         print("could not find module simple_interop")
     
-    
-    
+    parameter_overloads[1, 2, MyInt(3)]()
