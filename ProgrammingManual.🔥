@@ -60,18 +60,18 @@ fn use_something_big(borrowed a: SomethingBig, b: SomethingBig):
     a.print_id()
     b.print_id()
 
-struct MyInt:
+struct MyIntOld:
     var value: Int
     
     fn __init__(inout self, v: Int):
         self.value = v
   
-    fn __copyinit__(inout self, other: MyInt):
+    fn __copyinit__(inout self, other: MyIntOld):
         self.value = other.value
         
     # self and rhs are both immutable in __add__.
-    fn __add__(self, rhs: MyInt) -> MyInt:
-        return MyInt(self.value + rhs.value)
+    fn __add__(self, rhs: MyIntOld) -> MyIntOld:
+        return MyIntOld(self.value + rhs.value)
 
    # ... now this works:
     fn __iadd__(inout self, rhs: Int):
@@ -133,22 +133,6 @@ def work_with_python():
     let mypython = Python.import_module("mypython")
     let c = mypython.my_algorithm(2, 3)
     print(c)
-
-struct SIMD[type: DType, size: Int]:
-    var value: … # Some low-level MLIR stuff here
-
-    # Create a new SIMD from a number of scalars
-    fn __init__(inout self, *elems: SIMD[type, 1]):  ...
-
-    # Fill a SIMD with a duplicated scalar value.
-    @staticmethod
-    fn splat(x: SIMD[type, 1]) -> SIMD[type, size]: ...
-
-    # Cast the elements of the SIMD to a different elt type.
-    fn cast[target: DType](self) -> SIMD[target, size]: ...
-
-    # Many standard operators are supported.
-    fn __add__(self, rhs: Self) -> Self: ...
 
 @register_passable("trivial")
 struct MyInt:

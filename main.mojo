@@ -3,7 +3,7 @@ from mypack.module1 import ModulePair
 from ProgrammingManual import HeapArray
 from ProgrammingManual import SomethingBig
 from ProgrammingManual import use_something_big
-from ProgrammingManual import MyInt
+from ProgrammingManual import MyIntOld
 from ProgrammingManual import swap
 import ProgrammingManual as pm
 
@@ -26,7 +26,7 @@ fn main():
     let d = SomethingBig(20)
     use_something_big(c, d)
 
-    var x: MyInt = 42
+    var x: MyIntOld = 42
     x += 1
     print(x.value) # prints 43 as expected
 
@@ -50,4 +50,4 @@ fn main():
         print(e.value)
         print("could not find module simple_interop")
     
-    parameter_overloads[1, 2, MyInt(3)]()
+    pm.parameter_overloads[1, 2, pm.MyInt(3)]()
