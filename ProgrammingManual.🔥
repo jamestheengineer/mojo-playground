@@ -1,6 +1,7 @@
 from memory.unsafe import Pointer
 from python import Python
 from python.object import PythonObject
+from math import sqrt
 
 struct HeapArray:
     var data: Pointer[Int]
@@ -169,3 +170,6 @@ fn parameter_overloads[a: Int, b: Int, x: MyInt]():
 
     # `bar[*a: Int](b: Int)` is called because it has variadic parameters.
     bar[a, a, a](b)
+
+fn rsqrt[dt: DType, width: Int](x: SIMD[dt, width]) -> SIMD[dt, width]:
+    return 1 / sqrt(x)
