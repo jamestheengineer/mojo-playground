@@ -67,4 +67,4 @@ fn main():
     print('small_vec type:', small_vec.element_type, 'length:', len(small_vec))
     print('bigger_vec2 type:', bigger_vec2.element_type, 'length:', len(bigger_vec2))
 
-    print(pm.rsqrt[DType.float16, 4](4)) 
+    print(pm.rsqrt[DType.float16, 4](SIMD[DType.float16, 4](1.0, 2.0, 4.0, 9.0)))
