@@ -68,3 +68,8 @@ fn main():
     print('bigger_vec2 type:', bigger_vec2.element_type, 'length:', len(bigger_vec2))
 
     print(pm.rsqrt[DType.float16, 4](SIMD[DType.float16, 4](1.0, 2.0, 4.0, 9.0)))
+
+    let a = SIMD[DType.float32, 2](1, 2)
+    let x = concat[DType.float32, 2, 2](a, a)
+
+    print('result type:', x.element_type, 'length:', len(x))
