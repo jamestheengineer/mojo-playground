@@ -69,7 +69,7 @@ fn main():
 
     print(pm.rsqrt[DType.float16, 4](SIMD[DType.float16, 4](1.0, 2.0, 4.0, 9.0)))
 
-    let a = SIMD[DType.float32, 2](1, 2)
-    let x = concat[DType.float32, 2, 2](a, a)
+    let g = SIMD[DType.float32, 2](1, 2)
+    let z = pm.concat[DType.float32, 2, 2](g, g)
 
-    print('result type:', x.element_type, 'length:', len(x))
+    print('result type:', z.element_type, 'length:', len(z))
