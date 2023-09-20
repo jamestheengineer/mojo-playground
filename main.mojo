@@ -73,3 +73,7 @@ fn main():
     let z = pm.concat[DType.float32, 2, 2](g, g)
 
     print('result type:', z.element_type, 'length:', len(z))
+
+    let b = SIMD[DType.index, 4](1, 2, 3, 4)
+    print(b)
+    print("Elements sum:", reduce_add[DType.index, 4](b))
