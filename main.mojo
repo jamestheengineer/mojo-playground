@@ -74,6 +74,6 @@ fn main():
 
     print('result type:', z.element_type, 'length:', len(z))
 
-    let b = SIMD[DType.index, 4](1, 2, 3, 4)
-    print(b)
-    print("Elements sum:", reduce_add[DType.index, 4](b))
+    let h = SIMD[DType.index, 4](1, 2, 3, 4)
+    print(h)
+    print("Elements sum:", pm.reduce_add[DType.index, 4](h))
