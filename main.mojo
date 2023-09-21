@@ -77,3 +77,7 @@ fn main():
     let h = SIMD[DType.index, 4](1, 2, 3, 4)
     print(h)
     print("Elements sum:", pm.reduce_add[DType.index, 4](h))
+
+
+    var v = pm.Array[Float32](4, 3.14)
+    print(v[0], v[1], v[2], v[3])
