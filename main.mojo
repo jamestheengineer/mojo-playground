@@ -80,3 +80,16 @@ fn main():
 
     let v = pm.Array[Float32](4, 3.14)
     print(v[0], v[1], v[2], v[3])
+
+    let N = 32
+    let e = DTypePointer[DType.float32].alloc(N)
+    let f = DTypePointer[DType.float32].alloc(N)
+    let res = DTypePointer[DType.float32].alloc(N)
+    # Initialize arrays with some values
+    for i in range(N):
+        e.store(i, 2.0)
+        f.store(i, 40.0)
+        res.store(i, -1)
+        
+    buffer_elementwise_add[DType.float32](e, f, res, N)
+    print(e.load(10), f.load(10), res.load(10))
