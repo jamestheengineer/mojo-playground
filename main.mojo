@@ -91,5 +91,5 @@ fn main():
         f.store(i, 40.0)
         res.store(i, -1)
         
-    buffer_elementwise_add[DType.float32](e, f, res, N)
+    pm.buffer_elementwise_add[DType.float32](e, f, res, N)
     print(e.load(10), f.load(10), res.load(10))
