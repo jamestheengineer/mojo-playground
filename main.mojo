@@ -93,3 +93,6 @@ fn main():
         
     pm.buffer_elementwise_add[DType.float32](e, f, res, N)
     print(e.load(10), f.load(10), res.load(10))
+
+    print(pm.NoInstances.my_int)
+    pm.NoInstances.print_hello()

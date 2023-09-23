@@ -290,3 +290,12 @@ fn buffer_elementwise_add[
 
     # Call the select implementation
     best_impl(lhs, rhs, result, N)
+
+struct NoInstances:
+    var state: Int  # Pretty useless
+
+    alias my_int = Int
+
+    @staticmethod
+    fn print_hello():
+        print("hello world")
