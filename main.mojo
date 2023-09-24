@@ -95,3 +95,5 @@ fn main():
     print(e.load(10), f.load(10), res.load(10))
 
     pm.NoInstances.print_hello()
+
+    pm.use_strings()

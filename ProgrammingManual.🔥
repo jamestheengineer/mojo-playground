@@ -299,3 +299,22 @@ struct NoInstances:
     @staticmethod
     fn print_hello():
         print("hello world")
+
+fn use_strings():
+    var a = String("hello a")
+    let b = String("hello b")
+    print(a)
+    # a.__del__() runs here for "hello a"
+
+
+    print(b)
+    # b.__del__() runs here
+
+    a = String("temporary a")
+    # a.__del__() runs here because "temporary a" is never used
+
+    # Other stuff happens here
+
+    a = String("final a")
+    print(a)
+    # a.__del__() runs again here for "final a"
